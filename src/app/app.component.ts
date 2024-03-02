@@ -1,10 +1,25 @@
+// root.component.ts
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'odd-even-game';
+  oddNumbers: number[] = [];
+  evenNumbers: number[] = [];
+
+  onGameStarted() {
+    this.oddNumbers = [];
+    this.evenNumbers = [];
+  }
+
+  onTick(number: number) {
+    if (number % 2 === 0) {
+      this.evenNumbers.push(number);
+    } else {
+      this.oddNumbers.push(number);
+    }
+  }
 }
